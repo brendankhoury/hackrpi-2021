@@ -9,6 +9,7 @@ import Results from "./Components/Results";
 import CORE_API_KEY from "./apikey";
 import { Route, Router, Routes} from "react-router";
 import { Link } from "react-router-dom";
+import ArticleView from "./Components/ArticleView";
 
 function App() {
   return (
@@ -28,7 +29,8 @@ function App() {
       </AppBar>
       <Routes>
         <Route exact path="/" element={<Search />} />
-        <Route path="/:encodedQuery" element={<Results />} />
+        <Route path="/paper/:paperId" element={<ArticleView />} />
+        <Route path="/search/:encodedQuery" element={<Results />} />
       </Routes>
     </Box>
   );

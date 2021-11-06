@@ -25,16 +25,16 @@ export default function Results(props) {
   const DESCRIPTION_LENGTH = 200;
 
   useEffect(() => {
-    console.log("Searching: " + query);
     var parameters = {
       api_key: CORE_API_KEY,
       q: query,
     };
+
     var url = new URL("https://api.core.ac.uk/v3/search/works/");
     for (let p in parameters) {
       url.searchParams.append(p, parameters[p]);
     }
-    console.log(url);
+
     fetch(url)
       .then((result) => {
         return result.text();
@@ -44,8 +44,8 @@ export default function Results(props) {
       });
   }, [query, setQueryResults]);
 
-  console.log(query);
-  console.log(queryResults);
+  console.info(queryResults);
+
   return (
     <Grid container>
       <Grid item xs={0} md={2}></Grid>
@@ -64,16 +64,15 @@ export default function Results(props) {
                   encodeURIComponent(setSearchBoxText(event.target.value));
                 }}
               ></TextField>
-              <Link to={"/" + searchBoxText}>
+              <Link to={"/search/" + searchBoxText}>
                 <Button
-
                   variant="contained"
                   style={{
                     borderTopLeftRadius: "0%",
                     borderBottomLeftRadius: "0%",
-										height:"100%"
+                    height: "100%",
                   }}
-									onClick={()=>{}}
+                  onClick={() => {}}
                 >
                   <SearchIcon />
                 </Button>
@@ -108,7 +107,14 @@ export default function Results(props) {
               return (
                 <Grid item xs={12} key={key} style={{ marginTop: "10px" }}>
                   <Paper elevation={2} style={{ padding: "3px" }}>
-                    <Typography variant="h5">{articleTitle}</Typography>
+                    <a href={article.downloadUrl}>
+                      <Typography variant="h5">{articleTitle}</Typography>
+                    </a>
+										{/* <Link to={"/paper/" + article.id}>
+										
+										<!--For displaying links custom -- >
+                      <Typography variant="h5">{articleTitle}</Typography>
+                    </Link> */}
                     <Typography variant="h7">{articleContent}</Typography>
                   </Paper>
                 </Grid>

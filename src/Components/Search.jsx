@@ -7,7 +7,7 @@ export default function Search(props) {
   const [query, setQuery] = React.useState("");
 
   return (
-    <div style={{ display: "flex", flexDirection:"column", flexGrow:1 }}>
+    <div style={{ display: "flex", flexDirection: "column", flexGrow: 1 }}>
       <Box m="auto">
         <div style={{ minWidth: "200px", width: "50vw" }}>
           <Typography variant="h6">Find related articles:</Typography>
@@ -17,10 +17,9 @@ export default function Search(props) {
             fullWidth
             onChange={(event) => {
               setQuery(encodeURIComponent(event.target.value));
-              console.log(encodeURIComponent(event.target.value));
             }}
           />
-          <Link to={"/" + query}>
+          <Link to={"/search/" + query}>
             <Button variant="contained" fullWidth style={{ marginTop: "15px" }}>
               Search!
             </Button>
