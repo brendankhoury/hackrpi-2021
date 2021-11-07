@@ -18,11 +18,11 @@ function App() {
       style={{ display: "flex", flexDirection: "column" }}
       height="100vh"
     >
-      <AppBar position="static">
+      <AppBar position="static" color="transparent">
         <Toolbar>
           <Link to="/" style={{textDecoration:"none", color:"inherit"}}>
-            <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-              Paper Search
+            <Typography variant="h4" component="div" sx={{ flexGrow: 1, color:"white" }}>
+              Kerbal Search Program
             </Typography>
           </Link>
         </Toolbar>
