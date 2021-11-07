@@ -106,11 +106,6 @@ export default function Results(props) {
                       <a href={article.downloadUrl}>
                         <Typography variant="h5">{articleTitle}</Typography>
                       </a>
-                      {/* <Link to={"/paper/" + article.id}>
-										
-										<!--For displaying links custom -- >
-										<Typography variant="h5">{articleTitle}</Typography>
-									</Link> */}
                       <Typography variant="h7">{articleContent}</Typography>
                     </Paper>
                   </Grid>
