@@ -1,4 +1,4 @@
-import { Grid, Typography } from "@mui/material";
+import { Grid, Paper, Typography } from "@mui/material";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router";
 import CORE_API_KEY from "../apikey";
@@ -23,6 +23,7 @@ export default function ArticleView() {
       })
       .then((response) => {
         let data = JSON.parse(response);
+        console.log(data);
         let text = data.fullText.split("\n");
         console.log(text);
         setArticleData(JSON.parse(response));
@@ -34,11 +35,11 @@ export default function ArticleView() {
       <Grid item xs={0} md={2} />
       <Grid item xs={12} md={8}>
         {articleText ? (
-          <h1>
+          <Paper>
             {articleText.map((data) => (
               <Typography>{data}</Typography>
             ))}
-          </h1>
+          </Paper>
         ) : (
           <h1>Nothing here yet</h1>
         )}
