@@ -26,15 +26,7 @@ export default function Results(props) {
   const DESCRIPTION_LENGTH = 200;
 
   useEffect(() => {
-    var parameters = {
-      api_key: CORE_API_KEY,
-      q: query,
-    };
-
-    var url = new URL("https://api.core.ac.uk/v3/search/works/");
-    for (let p in parameters) {
-      url.searchParams.append(p, parameters[p]);
-    }
+    var url = new URL("https://us-central1-hackrpi2021.cloudfunctions.net/search?query=" + query);
 
     fetch(url)
       .then((result) => {
