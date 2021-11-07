@@ -11,7 +11,6 @@ import {
 import { useState, useEffect } from "react";
 import SearchIcon from "@mui/icons-material/Search";
 import { useParams } from "react-router";
-import CORE_API_KEY from "../apikey";
 import { Link } from "react-router-dom";
 import { border } from "@mui/system";
 
